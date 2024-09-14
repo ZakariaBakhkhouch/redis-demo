@@ -7,7 +7,7 @@ namespace RedisDemoApp.Repository
         Task AddPlatform(Platform platform);
         Task<Platform> GetPlatform(Guid id);
         Task<bool> DeletePlatform(Guid id);
-        Task<bool> UpdatePlatform(Platform platform, Guid id);
+        //Task<bool> UpdatePlatform(Platform platform, Guid id);
         Task<List<Platform>> GetAllPlatforms();
     }
 }

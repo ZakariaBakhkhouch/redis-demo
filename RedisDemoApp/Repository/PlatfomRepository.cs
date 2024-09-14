@@ -43,7 +43,7 @@ namespace RedisDemoApp.Repository
             {
                 var obj = Array.ConvertAll(completeSet, val => JsonSerializer.Deserialize<Platform>(val.Value)).ToList();
                 
-                if (obj.Count > 0)
+                if (obj is not null && obj.Count > 0)
                 {
                     return obj;
                 }
@@ -81,18 +81,18 @@ namespace RedisDemoApp.Repository
         }
         
         
-        public async Task<bool> UpdatePlatform(Platform platform, Guid id)
-        {
-            var db = _connectionMultiplexer.GetDatabase();
+        //public async Task<bool> UpdatePlatform(Platform platform, Guid id)
+        //{
+        //    var db = _connectionMultiplexer.GetDatabase();
 
-            var plat = await db.HashGetAsync("hashplatform", id.ToString());
+        //    var plat = await db.HashGetAsync("hashplatform", id.ToString());
 
-            var serializePlatform = JsonSerializer.Serialize(plat);
+        //    var serializePlatform = JsonSerializer.Serialize(plat);
 
-            await db.HashSetAsync("hashplatform", )
+        //    await db.HashSetAsync("hashplatform", plat);
 
-            return result;
-        }
+        //    return result;
+        //}
 
     }
 }
